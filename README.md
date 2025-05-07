@@ -65,9 +65,9 @@ BEGIN
 delete from cricketer where cid=id;
 END
 
-2. For fetch execute the below stored procedure
+2. For fetchData execute the below stored procedure
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `fetch`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `fetchData`()
 BEGIN
 select * from cricketer;
 END
