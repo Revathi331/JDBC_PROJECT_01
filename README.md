@@ -98,18 +98,28 @@ String password = "your_mysql_password";
 🚀 How to Run
 
 Clone the Repository:
+
 git clone https://github.com/Revathi331/JDBC_PROJECT_01.git
+
 Import the Project
+
 Open your Java IDE (preferably Eclipse).
+
 Set Up the Database
+
 Ensure MySQL is running.
+
 Execute the SQL commands mentioned in the Database Setup section to create the database and table.
+
 Run the Application:
+
 Navigate to App.java.
 
 Run the file to start the console-based application.
 
 
 🧑‍💻 Author
+
 Name: Revathi M
+
 GitHub: https://github.com/Revathi331
