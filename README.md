@@ -4,6 +4,19 @@ This is a Cricketer database connected JDBC program
 
 This Java-based application manages cricketer information using JDBC (Java Database Connectivity). It allows users to perform CRUD (Create, Read, Update, Delete) operations on a MySQL database through a console-based interface.
 
+🛠️ Technologies Used
+
+1. Java (Core)
+2. JDBC API
+3. MySQL
+4. Stored Procedures (for certain operations)
+5. Console-based interface
+
+Software Required:
+
+1. Eclipse Developer Tool
+2. MySQL
+ 
 Feature Descriptions:
 
 1. Insert data into cricketer
@@ -23,19 +36,6 @@ Updates a cricketer's name using basic SQL update logic.
 
 6–9. Procedure-based Operations
 Calls MySQL stored procedures to fetch, update, or delete cricketer data by ID.
-
-🛠️ Technologies Used
-
-Java (Core)
-JDBC API
-MySQL
-Stored Procedures (for certain operations)
-Console-based interface
-
-Software Required:
-
-Eclipse Developer Tool
-MySQL
 
 🗃️ Database Setup
 
@@ -79,7 +79,7 @@ BEGIN
 select * from cricketer where cid=id;
 END
 
-3. For updateName execute the below stored procedure
+4. For updateName execute the below stored procedure
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `updateName`( id int, name varchar(10))
 BEGIN
@@ -89,7 +89,9 @@ END
 Update the ConnectionUtils.java file with your MySQL credentials:
 
 String url = "jdbc:mysql://localhost:3306/jdbc";
+
 String username = "your_mysql_username";
+
 String password = "your_mysql_password";
 
 
