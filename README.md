@@ -4,23 +4,6 @@ This is a Cricketer database connected JDBC program
 
 This Java-based application manages cricketer information using JDBC (Java Database Connectivity). It allows users to perform CRUD (Create, Read, Update, Delete) operations on a MySQL database through a console-based interface.
 
-📁 Project Structure
-
-JDBC_PROJECT_01/
-├── src/
-│   └── com/
-│       └── jdbc/
-│           └── cricketer/
-│               ├── model/
-│               │   └── Cricketer_Model.java      # POJO class for cricketer data
-│               │
-│               ├── utils/
-│               │   ├── ConnectionUtils.java      # Handles JDBC DB connection
-│               │   └── Cricketer.java            # Cricketer class with constructors, getters & setters
-│               │
-│               └── App.java                      # Main class with CRUD Operations
-
-
 Feature Descriptions:
 
 1. Insert data into cricketer
@@ -44,22 +27,23 @@ Calls MySQL stored procedures to fetch, update, or delete cricketer data by ID.
 🛠️ Technologies Used
 
 Java (Core)
-
 JDBC API
-
 MySQL
-
 Stored Procedures (for certain operations)
-
 Console-based interface
+
+Software Required:
+
+Eclipse Developer Tool
+MySQL
 
 🗃️ Database Setup
 
 Execute the following SQL command to create the database:
-CREATE DATABASE cricketer;
+CREATE DATABASE jdbc;
   
 Create Table:
-CREATE TABLE `jdbc`.`new_table` (
+CREATE TABLE `jdbc`.`cricketer` (
   `cid` INT NOT NULL AUTO_INCREMENT,
   `cname` VARCHAR(45) NULL,
   `country` VARCHAR(45) NULL,
@@ -72,50 +56,58 @@ CREATE TABLE `jdbc`.`new_table` (
   `avg` DOUBLE NULL,
   PRIMARY KEY (`cid`));
   
-Configure Database Connection:
-Update the DBConnection.java file with your MySQL credentials:
+create stored procedures in MySQL workbench:
 
-java
-Copy
-Edit
-String url = "jdbc:mysql://localhost:3306/cricketerdb";
+1. For deleteById execute the below stored procedure
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteById`(id int)
+BEGIN
+delete from cricketer where cid=id;
+END
+
+2. For fetch execute the below stored procedure
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `fetch`()
+BEGIN
+select * from cricketer;
+END
+
+3. For fetchbyid execute the below stored procedure
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `fetchbyid`(id int)
+BEGIN
+select * from cricketer where cid=id;
+END
+
+3. For updateName execute the below stored procedure
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updateName`( id int, name varchar(10))
+BEGIN
+update cricketer set cname=name where cid=id;
+END
+
+Update the ConnectionUtils.java file with your MySQL credentials:
+
+String url = "jdbc:mysql://localhost:3306/jdbc";
 String username = "your_mysql_username";
 String password = "your_mysql_password";
+
+
 🚀 How to Run
+
 Clone the Repository:
-
-bash
-Copy
-Edit
 git clone https://github.com/Revathi331/JDBC_PROJECT_01.git
-Import the Project:
-
-Open your preferred Java IDE (e.g., Eclipse, IntelliJ IDEA).
-
-Import the project as a Java project.
-
-Set Up the Database:
-
+Import the Project
+Open your Java IDE (preferably Eclipse).
+Set Up the Database
 Ensure MySQL is running.
-
 Execute the SQL commands mentioned in the Database Setup section to create the database and table.
-
 Run the Application:
-
-Navigate to CricketerMain.java.
+Navigate to App.java.
 
 Run the file to start the console-based application.
 
-📋 Features
-Add Cricketer: Insert new cricketer details into the database.
-
-Update Cricketer: Modify existing cricketer information.
-
-Delete Cricketer: Remove a cricketer's record from the database.
-
-Display Cricketers: Retrieve and display all cricketer records.
 
 🧑‍💻 Author
-Name: Revathi R
-
-GitHub: Revathi331
+Name: Revathi M
+GitHub: https://github.com/Revathi331
